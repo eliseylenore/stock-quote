@@ -65,7 +65,8 @@ class App extends Component {
     }
     // User pressed the down arrow, increment the index
     else if (e.keyCode === 40) {
-      if (activeSuggestion - 1 === filteredSuggestions.length) {
+      console.log("activeSuggestion:"  + activeSuggestion)
+      if (activeSuggestion - 1 === 3) {
         return;
       }
 

@@ -29,30 +29,32 @@ class QuoteSearch extends Component {
         if (showSuggestions && userInput) {
             if (filteredSuggestions.length) {
                 suggestionsListComponent = (
-                    <ul className="suggestions">
-                       {filteredSuggestions.map((suggestion, index) => {
-                            let className;
+                    <div className="suggestions-container">
+                        <ul className="suggestions">
+                        {filteredSuggestions.map((suggestion, index) => {
+                                let className;
 
-                            // Flag the active suggestion with a class
-                            if (index === activeSuggestion) {
-                                className = "suggestion-active";
-                            }
+                                // Flag the active suggestion with a class
+                                if (index === activeSuggestion) {
+                                    className = "suggestion-active";
+                                }
 
-                            return (
-                                <li
-                                    className={className}
-                                    key={suggestion}
-                                    onClick={onClick}
-                                >
-                                    {suggestion}
-                                </li>
-                            );
-                        })}
-                    </ul>
+                                return (
+                                    <li
+                                        className={className}
+                                        key={suggestion}
+                                        onClick={onClick}
+                                    >
+                                        {suggestion}
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
                 );
             } else {
                 suggestionsListComponent = (
-                    <div class="no-suggestions">
+                    <div className="no-suggestions">
                         <em>No suggestions, you're on your own!</em>
                     </div>
                 );
@@ -73,9 +75,7 @@ class QuoteSearch extends Component {
                     <button type="submit">
                         <img src="./img/search.png" alt="search icon"/>
                     </button>
-                    <div className="suggestions-container">
                         {suggestionsListComponent}
-                    </div>
                 </form>
             </div>
         )
